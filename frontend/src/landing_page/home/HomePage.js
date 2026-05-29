@@ -10,14 +10,12 @@ import Footer from '../Footer';
 function HomePage() {
     return ( 
         <>
-        <Navbar/>
         <Hero/>
         <Stats/>
         <Awards/>
         <Pricing/>
         <Education/>
         <OpenAccount/>
-        <Footer/>
         </>
      );
 }
