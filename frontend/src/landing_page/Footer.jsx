@@ -62,7 +62,7 @@ function Footer() {
                     <br /> <br />
                     Procedure to file a complaint on <a href="/">SEBI SCORES</a>: Register on SCORES portal. Mandatory details for filing complaints on SCORES: Name, PAN, Address, Mobile Number, E-mail ID. Benefits: Effective Communication, Speedy redressal of the grievances
                     <br /> <br />
-                    <a href="">Smart Online Dispute Resolution</a> | <a href="">Grievances Redressal Mechanism</a>
+                    <a href="/">Smart Online Dispute Resolution</a> | <a href="/">Grievances Redressal Mechanism</a>
                     <br /><br />
                     Investments in securities market are subject to market risks; read all the related documents carefully before investing.
                     <br /><br />

@@ -35,7 +35,7 @@ function Navbar() {
               </Link>
             </li>
             <li class="nav-item px-3">
-                <a class="nav-link">
+                <a class="nav-link" href="/">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </li>
