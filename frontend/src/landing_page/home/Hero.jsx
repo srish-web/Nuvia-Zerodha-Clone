@@ -1,7 +1,7 @@
 import React from 'react';
 function Hero() {
     return ( 
-        <div className='container p-3'>
+        <div className='container p-3 mt-5'>
             <div className="row text-center" style={{width: "100%", height: "25%" }}>
                 <img src="media/images/HomeHero.svg" alt="HeroImage" style={{width: "65%", height: "25%" , margin: "0 auto", padding:"5%"}}/>
                 <h1 className='text-body-secondary fs-3'>Invest in everything</h1>

@@ -2,7 +2,7 @@ import React from 'react';
 function Hero() {
     return (
         <>
-        <div className="container mt-5 mb-5 border-bottom">
+        <div className="container mt-5 pt-5 mb-5 border-bottom">
             <div className="row mt-5 mb-5 ">
                 <h2 className='fs-4 text-center mt-5 mb-5 text-muted '>
                     We pioneered the discount broking model in India.

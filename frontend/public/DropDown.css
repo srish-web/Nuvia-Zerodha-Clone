@@ -1,0 +1,228 @@
+/* ─────────────────────────────────────────────
+   SupportDropdown — DropDown.css
+   Zerodha-style accordion card component styles
+───────────────────────────────────────────── */
+
+/* ── CSS Variables ── */
+:root {
+  --primary:    #387ed1;
+  --primary-dk: #1e5ab0;
+  --border:     #e0e2e8;
+  --icon-bg:    #f2f4f8;
+  --icon-bg-hv: #e8eaf2;
+  --icon-bg-op: #e5effa;
+  --icon-bd-op: #c8ddf6;
+  --text:       #424242;
+  --subtext:    #6b7280;
+  --chevron:    #9ca3af;
+  --dot:        #b8cef0;
+  --bg-hover:   #fafbfd;
+}
+
+/* ─────────────────────────────────────────────
+   Accordion Stack (wrapper used in Hero)
+───────────────────────────────────────────── */
+.accordion-stack {
+    display: flex;
+    flex-direction: column;
+    /* border: 0.5px solid var(--border); */
+    overflow: hidden;
+}
+/* Divider between items */
+.accordion-item + .accordion-item {
+  margin: "10%";
+}
+
+/* ─────────────────────────────────────────────
+   Header row (the clickable toggle bar)
+───────────────────────────────────────────── */
+.accordion-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 68px;
+  padding: 0;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  transition: background 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+  border: 0.5px solid var(--border);
+}
+
+.accordion-header:hover {
+  background: var(--bg-hover);
+}
+
+.accordion-header:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+/* ─────────────────────────────────────────────
+   Left icon zone
+───────────────────────────────────────────── */
+.accordion-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  min-width: 68px;
+  height: 68px;
+  background: var(--icon-bg);
+  border-right: 0.5px solid var(--border);
+  flex-shrink: 0;
+  transition: background 0.18s ease;
+}
+
+.accordion-header:hover .accordion-icon-wrap {
+  background: var(--icon-bg-hv);
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon-wrap {
+  background: var(--icon-bg-op);
+  border-right-color: var(--icon-bd-op);
+}
+
+.accordion-icon-wrap i {
+  font-size: 19px;
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────────
+   Title text
+───────────────────────────────────────────── */
+.accordion-title {
+  flex: 1;
+  padding: 18px 22px;
+  font-family: 'Figtree', system-ui, sans-serif;
+  font-size: 16.5px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────────
+   Chevron icon (right side)
+───────────────────────────────────────────── */
+.accordion-chevron {
+  padding-right: 22px;
+  padding-left: 22px;
+  color: var(--chevron);
+  font-size: 13px;
+  transform: rotate(0deg);
+  transition: transform 0.30s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-chevron {
+  transform: rotate(180deg);
+  padding-left: 22px;
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────────
+   Collapsible body panel
+───────────────────────────────────────────── */
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  transition: max-height 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-body.open {
+  border-top: 0.5px solid var(--border);
+}
+
+.accordion-body-inner {
+    padding: 18px 22px 22px 68px;
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ─────────────────────────────────────────────
+   Link list inside panel
+───────────────────────────────────────────── */
+.accordion-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-links li {
+  position: relative;
+  padding: 6px 0 6px 18px;
+}
+
+/* Bullet dot */
+.accordion-links li::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dot);
+  transition: background 0.2s ease;
+}
+
+.accordion-links li:hover::before {
+  background: var(--primary);
+}
+
+.accordion-links a {
+  font-family: 'Figtree', system-ui, sans-serif;
+  font-size: 15px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 400;
+  display: inline-block;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.accordion-links a:hover {
+  color: var(--primary-dk);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   Responsive — mobile / small tablet
+───────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .accordion-icon-wrap {
+    width: 54px;
+    min-width: 54px;
+    height: 54px;
+  }
+
+  .accordion-icon-wrap i {
+    font-size: 16px;
+  }
+
+  .accordion-header {
+    min-height: 54px;
+  }
+
+  .accordion-title {
+    font-size: 14.5px;
+    padding: 14px;
+  }
+
+  .accordion-chevron {
+    padding-right: 14px;
+  }
+
+  .accordion-body-inner {
+    padding: 14px 14px 18px 54px;
+  }
+
+  .accordion-links a {
+    font-size: 14px;
+  }
+}
