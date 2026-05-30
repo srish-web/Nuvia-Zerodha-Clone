@@ -93,19 +93,19 @@ function Hero() {
             </thead>
             <tbody>
               <tr>
-                <td className="p-3"><a href="#">1. Track Account Opening</a></td>
+                <td className="p-3"><a href="/">1. Track Account Opening</a></td>
               </tr>
               <tr>
-                <td className="p-3"><a href="#">2. Track Segment Activation</a></td>
+                <td className="p-3"><a href="/">2. Track Segment Activation</a></td>
               </tr>
               <tr>
-                <td className="p-3"><a href="#">3. Intraday Margins</a></td>
+                <td className="p-3"><a href="/">3. Intraday Margins</a></td>
               </tr>
               <tr>
-                <td className="p-3"><a href="#">4.Kite User Manual</a></td>
+                <td className="p-3"><a href="/">4.Kite User Manual</a></td>
               </tr>
               <tr>
-                <td className="p-3"><a href="#">5. Learn How to create a ticket</a></td>
+                <td className="p-3"><a href="/">5. Learn How to create a ticket</a></td>
               </tr>
             </tbody>
           </table>
