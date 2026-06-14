@@ -7,7 +7,7 @@ function Footer() {
             <div className="row" style={{marginLeft:"2%", marginTop:"5%"}}>
                 <div className="col" style={{marginRight:"2%"}}>
                     <Link to="/">
-                    <img src="media/images/logo.svg" alt="" style={{width: "60%"}}/>
+                    <img src="media/images/logo.png" alt="" style={{width: "60%"}}/>
                     </Link>
                     <p className='small text-body-secondary mt-3'>© 2010 - 2026, Zerodha Broking Ltd. <br /> All rights reserved.</p>
                 </div>

@@ -5,23 +5,23 @@ function Team() {
             <div className="row">
                 <div className="col-2"></div>
                 <div className="col-4">
-                    <img src="media\images\nithinKamath.jpg" alt="nithinKamath" className="d-block mt-5" style={{height: "300px", width:"300px", borderRadius:"50%"}}/>
-                    <p className='fs-4 mt-3' style={{marginLeft:"18%"}}>
-                        Nithin Kamath
+                    <img src="media\images\srishtyGupta.png" alt="nithinKamath" className="d-block mt-5" style={{height: "350px", width:"300px", borderRadius:"50%"}}/>
+                    <p className='fs-4 mt-3 text-center' style={{marginRight:"30%"}}>
+                        Srishty Gupta
                         <br />
-                        Founder, CEO
+                        Creator & Developer, Nuvia
                     </p>
                 </div>
                 <div className="col-4">
                     <h1>People</h1>
                     <p>
-                        Nithin bootstrapped and founded Zerodha in 2010 to overcome the hurdles he faced during his decade long stint as a trader. Today, Zerodha has changed the landscape of the Indian broking industry.
+                        Srishty Gupta is the creator and developer of Nuvia, a modern stock trading platform inspired by the vision of making investing simple, accessible, and user-friendly. Built as a full-stack web development project, Nuvia represents her passion for technology, finance, and creating intuitive digital experiences.
                         <br /><br />
-                        He is a member of the SEBI Secondary Market Advisory Committee (SMAC) and the Market Data Advisory Committee (MDAC).
+                        As a Computer Science student and aspiring software developer, she enjoys building real-world applications that combine clean design with practical functionality. Through Nuvia, she aims to showcase her skills in frontend development, backend architecture, database management, and responsive user interface design.
                         <br /><br />
-                        Playing basketball is his zen.
+                        When not coding, she enjoys exploring new technologies, solving programming challenges, contributing to projects, and continuously learning to become a better developer.
                         <br /><br />
-                        Connect on Homepage / TradingQnA / Twitter
+                        Connect on GitHub / LinkedIn / Portfolio
                     </p>
                 </div>
                 <div className="col-2"></div>

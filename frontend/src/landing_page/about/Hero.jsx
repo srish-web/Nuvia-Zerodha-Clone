@@ -5,9 +5,9 @@ function Hero() {
         <div className="container mt-5 pt-5 mb-5 border-bottom">
             <div className="row mt-5 mb-5 ">
                 <h2 className='fs-4 text-center mt-5 mb-5 text-muted '>
-                    We pioneered the discount broking model in India.
+                    We started by exploring the architecture behind modern trading platforms.
                     <br />
-                    Now, we are breaking ground with our technology.
+                    Today, we're building intuitive experiences with the MERN stack.
                 </h2>
             </div>
         </div>
@@ -15,20 +15,20 @@ function Hero() {
             <div className="row">
                 <div className="col-2"></div>
                 <div className="col-4">
-                    <p className='fs-6'>We kick-started operations on the 15th of August, 2010 with the goal of breaking all barriers that traders and investors face in India in terms of cost, support, and technology. We named the company Zerodha, a combination of Zero and "Rodha", the Sanskrit word for barrier. 
+                    <p className='fs-6'>Nuvia is a full-stack trading platform inspired by modern fintech applications and built using the MERN stack (MongoDB, Express.js, React.js, and Node.js). The project was developed to gain hands-on experience in designing scalable web applications and understanding the architecture behind real-world investment platforms.
                     <br /><br />
-                    Today, our disruptive pricing models and in-house technology have made us the biggest stock broker in India.
+                    Through Nuvia, I implemented features such as user authentication, responsive user interfaces, API integration, database management, and seamless frontend-backend communication.
                     <br /><br />
-                    Over 1.6+ crore clients place billions of orders every year through our powerful ecosystem of investment platforms, contributing over 15% of all Indian retail trading volumes.
+                     The project allowed me to explore industry-standard development practices while strengthening my skills across the entire web development lifecycle.
                     </p>
                 </div>
                 <div className="col-4">
                     <p className='fs-6'>
-                        In addition, we run a number of popular open online educational and community initiatives to empower retail traders and investors.
+                        Built with a focus on performance, usability, and clean design, Nuvia reflects my passion for creating practical applications that solve real-world problems. Every component of the platform was carefully crafted to provide a smooth and intuitive user experience.
                         <br /><br />
-                        Rainmatter, our fintech fund and incubator, has invested in several fintech startups with the goal of growing the Indian capital markets.
+                        More than just a clone project, Nuvia represents my journey as a developer—applying MERN stack technologies to transform ideas into functional products while continuously learning and improving along the way.
                         <br /><br />
-                        And yet, we are always up to something new every day. Catch up on the latest updates on our blog or see what the media is saying about us or learn more about our business and product philosophies.
+                        As I continue growing as a software developer, I plan to expand Nuvia with new features, enhanced functionality, and deeper integrations to create an even more complete trading platform experience.
                     </p>
                 </div>
                 <div className="col-2"></div>
