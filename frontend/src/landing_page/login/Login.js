@@ -1,22 +1,13 @@
-// import React from 'react';
-// function Signup() {
-//     return ( 
-//         <h1>Signup</h1>
-//      );
-// }
-
-// export default Signup;
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Signup.css";
 
-function Signup() {
+const Login = () => {
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useState({ email: "", password: "", username: "" });
-  const { email, password, username } = inputValue;
+  const [inputValue, setInputValue] = useState({ username: "", password: "" });
+  const { username, password } = inputValue;
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +18,7 @@ function Signup() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/signup",
+        "http://localhost:3002/login",
         { ...inputValue },
         { withCredentials: true }
       );
@@ -42,28 +33,15 @@ function Signup() {
     } catch (err) {
       console.error(err);
     }
-    setInputValue({ email: "", password: "", username: "" });
+    setInputValue({ username: "", password: "" });
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center" style={{ marginTop: "200px", marginBottom:"200px"}}>
+    <div className="container d-flex justify-content-center align-items-center" style={{ marginTop: "200px", marginBottom: "100px"}}>
         <div className="card p-4 shadow-sm" style={{ width: "100%", maxWidth: "400px" }}>
-            <h2 className="text-center mb-4 fw-bold text-primary">Signup</h2>
+            <h2 className="text-center mb-4 fw-bold text-primary">Login</h2>
             
             <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-                <label className="form-label">Email address</label>
-                <input 
-                type="email" 
-                className="form-control" 
-                name="email" 
-                value={email} 
-                placeholder="name@example.com" 
-                onChange={handleOnChange} 
-                required
-                />
-            </div>
-
             <div className="mb-3">
                 <label className="form-label">Username</label>
                 <input 
@@ -71,7 +49,7 @@ function Signup() {
                 className="form-control" 
                 name="username" 
                 value={username} 
-                placeholder="johndoe" 
+                placeholder="Johndoe" 
                 onChange={handleOnChange} 
                 required
                 />
@@ -91,10 +69,15 @@ function Signup() {
             </div>
 
             <button type="submit" className="btn btn-primary w-100 mt-2 py-2 fw-semibold">
-                Sign Up
+                Login
             </button>
+
+            <div className="text-center mt-3">
+                <span className="text-muted small">
+                Don't have an account? <Link to="/signup" className="text-decoration-none fw-semibold">Signup</Link>
+                </span>
+            </div>
             </form>
-            <p className="text-center">Already have an account? <Link  to="/login">Login</Link></p>
         </div>
         <ToastContainer />
         </div>
@@ -102,4 +85,4 @@ function Signup() {
   );
 };
 
-export default Signup;
+export default Login;

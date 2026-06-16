@@ -8,7 +8,7 @@ const Menu = () => {
     setSelectedMenu(index);
   }
   const handleProfileClick = (index) =>{
-    setIsDropdown(!setIsDropdown);
+    setIsDropdown(!isDropdown);
   }
 
   const MenuClass = "menu";

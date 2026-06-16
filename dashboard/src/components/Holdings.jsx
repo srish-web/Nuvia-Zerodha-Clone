@@ -6,7 +6,7 @@ import axios from "axios";
 const Holdings = () => {
 
   const [allHoldings, setAllHoldings] = useState([]);
-
+ 
   useEffect(()=>{
     axios.get("http://localhost:3000/allHoldings").then((res)=>{
       setAllHoldings(res.data);
