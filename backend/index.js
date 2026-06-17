@@ -18,7 +18,7 @@ const app = express();
 
 // ─── Middleware ───────────────────────────────────────────────
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:3001"], // frontend + dashboard ports
+  origin: ["http://localhost:3000", "http://localhost:3001" , "http://localhost:3002"], // frontend + dashboard ports
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,  // REQUIRED for cookies to work cross-origin
 }));
@@ -45,13 +45,13 @@ app.get('/allOrders', verifyToken, async (req, res) => {
 });
 
 app.post('/newOrder', verifyToken, async (req, res) => {
-  let newOrder = new OrdersModel({
+  let newOrder = new OrdersModel({ 
     name: req.body.name,
     qty: req.body.qty,
     price: req.body.price,
     mode: req.body.mode,
   });
-  newOrder.save();
+  await newOrder.save();
   res.send("Order saved");
 });
 

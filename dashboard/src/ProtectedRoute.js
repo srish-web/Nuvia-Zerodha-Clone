@@ -1,39 +1,46 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 
 const ProtectedRoute = ({ children }) => {
-  const [cookies, removeCookie] = useCookies([]);
-  const [verified, setVerified] = useState(null); // null = loading
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+  const [verified, setVerified] = useState(null); // null = loading, true = ok, false = redirect
+
+  // Memoize the verification function to avoid recreating it on every render
+  const verifyCookie = useCallback(async () => {
+    if (!cookies.token) {
+      window.location.href = "http://localhost:3002/login";
+      return;
+    }
+
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3000/",           // ← Backend port (correct)
+        {},
+        { withCredentials: true }
+      );
+
+      if (data.status === true) {
+        setVerified(true);
+      } else {
+        removeCookie("token", { path: "/" });
+        window.location.href = "http://localhost:3002/login";
+      }
+    } catch (err) {
+      console.error("Auth verification failed:", err);
+      removeCookie("token", { path: "/" });
+      window.location.href = "http://localhost:3002/login";
+    }
+  }, [cookies.token, removeCookie]);
 
   useEffect(() => {
-    const verifyCookie = async () => {
-      if (!cookies.token) {
-        // No token — send back to frontend login
-        window.location.href = "http://localhost:3000/login";
-        return;
-      }
-      try {
-        const { data } = await axios.post(
-          "http://localhost:3002/",   // backend token verify endpoint
-          {},
-          { withCredentials: true }
-        );
-        if (data.status) {
-          setVerified(true);
-        } else {
-          removeCookie("token");
-          window.location.href = "http://localhost:3000/login";
-        }
-      } catch (err) {
-        removeCookie("token");
-        window.location.href = "http://localhost:3000/login";
-      }
-    };
     verifyCookie();
-  }, []);
+  }, [verifyCookie]); // ← Now properly depends on the stable function
 
-  if (verified === null) return <div>Loading...</div>;
+  if (verified === null) {
+    return <div className="text-center mt-5">Verifying authentication...</div>;
+  }
+
   return verified ? children : null;
 };
 

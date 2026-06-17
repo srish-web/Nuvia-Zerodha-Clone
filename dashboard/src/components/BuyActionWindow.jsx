@@ -4,7 +4,7 @@ import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
 
 const BuyActionWindow = ({ uid }) => {
-  const { closeBuyWindow } = useContext(GeneralContext); // ✅ moved INSIDE component
+  const { closeBuyWindow } = useContext(GeneralContext); 
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
@@ -15,6 +15,9 @@ const BuyActionWindow = ({ uid }) => {
         qty: stockQuantity,
         price: stockPrice,
         mode: "BUY",
+      },
+      {
+        withCredentials: true,        
       });
     } catch (err) {
       console.log("Backend not connected yet");

@@ -13,11 +13,14 @@ const SellActionWindow = ({ uid }) => {
   // fetch holdings when window opens and check if user holds this stock
   useEffect(() => {
     axios
-      .get("http://localhost:3000/allHoldings")
+      .get("http://localhost:3000/allHoldings", {
+          withCredentials: true, 
+        })
       .then((res) => {
         const holding = res.data.find(
           (h) => h.name.toUpperCase() === uid.toUpperCase()
         );
+        
         if (holding) {
           setUserHolding(holding);  // stock found in holdings
         } else {
@@ -64,6 +67,9 @@ const SellActionWindow = ({ uid }) => {
         qty: stockQuantity,
         price: stockPrice,
         mode: "SELL",
+      },
+      {
+        withCredentials: true,     // ← THIS IS THE MOST IMPORTANT LINE
       })
       .then(() => {
         closeSellWindow();
