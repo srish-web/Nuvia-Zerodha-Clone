@@ -25,7 +25,7 @@ const Login = () => {
       if (data.success) {
         toast.success(data.message, { position: "bottom-right" });
         setTimeout(() => {
-          window.location.href = `${process.env.REACT_APP_DURL}`; // redirect to dashboard app
+          window.location.href = "https://nuvia-dashboard.onrender.com"; // redirect to dashboard app
         }, 1000);
       } else {
         toast.error(data.message, { position: "bottom-left" });
