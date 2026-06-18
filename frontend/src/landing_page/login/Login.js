@@ -23,6 +23,7 @@ const Login = () => {
         { withCredentials: true }
       );
       if (data.success) {
+        localStorage.setItem("token", data.token);
         toast.success(data.message, { position: "bottom-right" });
         setTimeout(() => {
           window.location.href = `${process.env.REACT_APP_DURL}`; // redirect to dashboard app
