@@ -62,7 +62,7 @@ const SellActionWindow = ({ uid }) => {
 
     // all checks passed — place sell order
     axios
-      .post("http://localhost:3000/newOrder", {
+      .post(`${process.env.REACT_APP_BURL}/newOrder`, {
         name: uid,
         qty: stockQuantity,
         price: stockPrice,
