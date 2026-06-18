@@ -18,7 +18,7 @@ const app = express();
 
 // ─── Middleware ───────────────────────────────────────────────
 app.use(cors({
-  origin: [ "http://localhost:3001" , "http://localhost:3002"], // frontend + dashboard ports
+  origin: [ "https://nuvia-dashboard.onrender.com" , "https://nuvia-a2kp.onrender.com"], // frontend + dashboard ports
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,  // REQUIRED for cookies to work cross-origin
 }));
