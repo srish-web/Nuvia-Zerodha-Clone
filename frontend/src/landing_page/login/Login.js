@@ -18,14 +18,14 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/login",
+        `${process.env.REACT_APP_BURL}/login`,
         { ...inputValue },
         { withCredentials: true }
       );
       if (data.success) {
         toast.success(data.message, { position: "bottom-right" });
         setTimeout(() => {
-          window.location.href = "http://localhost:3001"; // redirect to dashboard app
+          window.location.href = `${process.env.REACT_APP_DURL}`; // redirect to dashboard app
         }, 1000);
       } else {
         toast.error(data.message, { position: "bottom-left" });
@@ -37,7 +37,8 @@ const Login = () => {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center" style={{ marginTop: "200px", marginBottom: "100px"}}>
+
+    <div className="container d-flex justify-content-center align-items-center" style={{ marginTop: "150px", marginBottom: "100px", flexDirection: "column"}}>
         <div className="card p-4 shadow-sm" style={{ width: "100%", maxWidth: "400px" }}>
             <h2 className="text-center mb-4 fw-bold text-primary">Login</h2>
             
@@ -79,6 +80,14 @@ const Login = () => {
             </div>
             </form>
         </div>
+        <div className="card mt-3 shadow-sm">
+        <div className="card-body text-center">
+          <h5 className="fw-bold text-success">Login directly using: </h5>
+          <p>Email: mssrishtygupta1110@gmail.com <br />
+             Username: SrishtyGupta <br />
+             Password: SrishtyGupta</p>
+        </div>
+      </div>
         <ToastContainer />
         </div>
 

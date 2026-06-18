@@ -27,7 +27,7 @@ const Orders = () => {
   const [allOrders, setAllOrders] = useState([]);
  
   useEffect(()=>{
-    axios.get("http://localhost:3000/allOrders", { withCredentials: true }).then((res)=>{
+    axios.get(`${process.env.REACT_APP_BURL}/allOrders`, { withCredentials: true }).then((res)=>{
       setAllOrders(res.data);
     });
   }, []);

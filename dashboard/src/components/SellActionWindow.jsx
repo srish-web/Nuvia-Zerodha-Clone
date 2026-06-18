@@ -13,7 +13,7 @@ const SellActionWindow = ({ uid }) => {
   // fetch holdings when window opens and check if user holds this stock
   useEffect(() => {
     axios
-      .get("http://localhost:3000/allHoldings", {
+      .get(`${process.env.REACT_APP_BURL}/allHoldings`, {
           withCredentials: true, 
         })
       .then((res) => {

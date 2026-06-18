@@ -10,7 +10,7 @@ const BuyActionWindow = ({ uid }) => {
 
   const handleBuyClick = () => {
     try {
-      axios.post("http://localhost:3000/newOrder", {
+      axios.post(`${process.env.REACT_APP_BURL}/newOrder`, {
         name: uid,
         qty: stockQuantity,
         price: stockPrice,
@@ -21,6 +21,7 @@ const BuyActionWindow = ({ uid }) => {
       });
     } catch (err) {
       console.log("Backend not connected yet");
+      console.log(process.env.REACT_APP_BURL);
     }
     closeBuyWindow();
   };

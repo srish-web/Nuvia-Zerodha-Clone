@@ -7,7 +7,7 @@ const Summary = () => {
     const fetchUser = async () => {
       try {
         const { data } = await axios.post(
-          "http://localhost:3000/",
+          `${process.env.REACT_APP_BURL}/`,
           {},
           { withCredentials: true }
         );

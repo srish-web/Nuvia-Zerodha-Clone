@@ -9,13 +9,13 @@ const ProtectedRoute = ({ children }) => {
   // Memoize the verification function to avoid recreating it on every render
   const verifyCookie = useCallback(async () => {
     if (!cookies.token) {
-      window.location.href = "http://localhost:3002/login";
+      window.location.href = `${process.env.REACT_APP_FURL}/login`;
       return;
     }
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/",           // ← Backend port (correct)
+        `${process.env.REACT_APP_BURL}/`,           // ← Backend port (correct)
         {},
         { withCredentials: true }
       );
@@ -24,12 +24,12 @@ const ProtectedRoute = ({ children }) => {
         setVerified(true);
       } else {
         removeCookie("token", { path: "/" });
-        window.location.href = "http://localhost:3002/login";
+        window.location.href = `${process.env.REACT_APP_FURL}/login`;
       }
     } catch (err) {
       console.error("Auth verification failed:", err);
       removeCookie("token", { path: "/" });
-      window.location.href = "http://localhost:3002/login";
+      window.location.href = `${process.env.REACT_APP_FURL}/login`;
     }
   }, [cookies.token, removeCookie]);
 

@@ -11,7 +11,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Signup.css";
 
 function Signup() {
   const navigate = useNavigate();
@@ -27,26 +26,29 @@ function Signup() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/signup",
+        `${process.env.REACT_APP_BURL}/signup`,
         { ...inputValue },
         { withCredentials: true }
       );
       if (data.success) {
         toast.success(data.message, { position: "bottom-right" });
         setTimeout(() => {
-          window.location.href = "http://localhost:3001"; // redirect to dashboard app
+          window.location.href = `${process.env.REACT_APP_DURL}`; // redirect to dashboard app
         }, 1000);
       } else {
         toast.error(data.message, { position: "bottom-left" });
       }
     } catch (err) {
       console.error(err);
+      toast.error(err.response?.data?.message || "Signup failed", { position: "bottom-left" });
     }
     setInputValue({ email: "", password: "", username: "" });
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center" style={{ marginTop: "200px", marginBottom:"200px"}}>
+    <>
+    
+    <div className="container d-flex justify-content-center align-items-center" style={{ marginTop: "150px", marginBottom:"200px", flexDirection: "column"}}>
         <div className="card p-4 shadow-sm" style={{ width: "100%", maxWidth: "400px" }}>
             <h2 className="text-center mb-4 fw-bold text-primary">Signup</h2>
             
@@ -96,9 +98,17 @@ function Signup() {
             </form>
             <p className="text-center">Already have an account? <Link  to="/login">Login</Link></p>
         </div>
+        <div className="card mt-3 shadow-sm">
+        <div className="card-body text-center">
+          <h5 className="fw-bold text-success">Login directly using: </h5>
+          <p>Email: mssrishtygupta1110@gmail.com <br />
+             Username: SrishtyGupta <br />
+             Password: SrishtyGupta</p>
+        </div>
+      </div>
         <ToastContainer />
         </div>
-
+    </>
   );
 };
 
