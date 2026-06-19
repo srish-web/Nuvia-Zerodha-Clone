@@ -9,13 +9,12 @@ const SellActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
   const [userHolding, setUserHolding] = useState(null); // holding data for this stock
   const [error, setError] = useState("");               // error message to show user
+  const token = localStorage.getItem("token");
 
   // fetch holdings when window opens and check if user holds this stock
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BURL}/allHoldings`, {
-          withCredentials: true, 
-        })
+      .get(`${process.env.REACT_APP_BURL}/allHoldings`, {headers: { Authorization: `Bearer ${token}` }})
       .then((res) => {
         const holding = res.data.find(
           (h) => h.name.toUpperCase() === uid.toUpperCase()

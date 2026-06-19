@@ -3,13 +3,14 @@ import axios from "axios";
 
 const Summary = () => {
   const [username, setUsername] = useState("User");
+  const token = localStorage.getItem("token");
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const { data } = await axios.post(
           `${process.env.REACT_APP_BURL}/`,
           {},
-          { withCredentials: true }
+          {headers: { Authorization: `Bearer ${token}` }}
         );
         console.log("Backend response data:", data);
         if (data && data.user) setUsername(data.user);

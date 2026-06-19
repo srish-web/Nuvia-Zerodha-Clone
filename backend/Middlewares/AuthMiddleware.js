@@ -18,7 +18,7 @@ module.exports.userVerification = (req, res) => {
 
 // Protects existing API routes (holdings, positions, orders)
 module.exports.verifyToken = (req, res, next) => {
-  const token = req.cookies.token;
+  const token = req.cookies.token || req.headers["authorization"]?.split(" ")[1];
   if (!token) return res.status(401).json({ message: "Unauthorized: No token" });
 
   jwt.verify(token, process.env.TOKEN_KEY, (err, data) => {

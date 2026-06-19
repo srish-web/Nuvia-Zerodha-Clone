@@ -7,9 +7,10 @@ import { VerticalGraph } from "./VerticalGraph";
 const Holdings = () => {
 
   const [allHoldings, setAllHoldings] = useState([]);
+  const token = localStorage.getItem("token");
  
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_BURL}/allHoldings` , { withCredentials: true }).then((res)=>{
+    axios.get(`${process.env.REACT_APP_BURL}/allHoldings` , {headers: { Authorization: `Bearer ${token}` }}).then((res)=>{
       setAllHoldings(res.data);
     });
   }, []);

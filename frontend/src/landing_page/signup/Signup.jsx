@@ -33,7 +33,7 @@ function Signup() {
       if (data.success) {
         toast.success(data.message, { position: "bottom-right" });
         setTimeout(() => {
-          window.location.href = `${process.env.REACT_APP_DURL}`; // redirect to dashboard app
+          window.location.href = `${process.env.REACT_APP_DURL}?token=${data.token}`;
         }, 1000);
       } else {
         toast.error(data.message, { position: "bottom-left" });

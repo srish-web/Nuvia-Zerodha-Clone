@@ -25,9 +25,10 @@ import axios from "axios";
 const Orders = () => {
 
   const [allOrders, setAllOrders] = useState([]);
+  const token = localStorage.getItem("token");
  
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_BURL}/allOrders`, { withCredentials: true }).then((res)=>{
+    axios.get(`${process.env.REACT_APP_BURL}/allOrders`, {headers: { Authorization: `Bearer ${token}` }}).then((res)=>{
       setAllOrders(res.data);
     });
   }, []);

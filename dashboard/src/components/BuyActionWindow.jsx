@@ -7,6 +7,7 @@ const BuyActionWindow = ({ uid }) => {
   const { closeBuyWindow } = useContext(GeneralContext); 
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
+  const token = localStorage.getItem("token");
 
   const handleBuyClick = () => {
     try {
@@ -15,10 +16,7 @@ const BuyActionWindow = ({ uid }) => {
         qty: stockQuantity,
         price: stockPrice,
         mode: "BUY",
-      },
-      {
-        withCredentials: true,        
-      });
+      }, {headers: { Authorization: `Bearer ${token}` }});
     } catch (err) {
       console.log("Backend not connected yet");
       console.log(process.env.REACT_APP_BURL);

@@ -6,9 +6,10 @@ import axios from "axios";
 const Positions = () => {
 
   const [allPositions, setallPositions] = useState([]);
+  const token = localStorage.getItem("token");
 
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_BURL}/allPositions` , { withCredentials: true }).then((res)=>{
+    axios.get(`${process.env.REACT_APP_BURL}/allPositions` , {headers: { Authorization: `Bearer ${token}` }}).then((res)=>{
       setallPositions(res.data);
     });
   }, []);
