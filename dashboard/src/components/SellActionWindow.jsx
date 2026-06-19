@@ -66,10 +66,7 @@ const SellActionWindow = ({ uid }) => {
         qty: stockQuantity,
         price: stockPrice,
         mode: "SELL",
-      },
-      {
-        withCredentials: true,     // ← THIS IS THE MOST IMPORTANT LINE
-      })
+      }, {headers: { Authorization: `Bearer ${token}` }})
       .then(() => {
         closeSellWindow();
       })
