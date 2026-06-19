@@ -23,6 +23,7 @@ const Login = () => {
         { withCredentials: true }
       );
       if (data.success) {
+        localStorage.setItem("token", data.token);
         toast.success(data.message, { position: "bottom-right" });
         setTimeout(() => {
           window.location.href = "https://nuvia-dashboard.onrender.com"; // redirect to dashboard app
