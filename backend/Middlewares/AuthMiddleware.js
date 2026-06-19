@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 // Verifies token for the dashboard check (POST /)
 module.exports.userVerification = (req, res) => {
-  const token = req.cookies.token;
+  const token = req.cookies.token || req.headers["authorization"]?.split(" ")[1];
   if (!token) return res.json({ status: false });
 
   jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
